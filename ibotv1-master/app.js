@@ -53,7 +53,7 @@ client.on('message', message => {
 
         try {
 
-            let commandFile = require(`ibotv1-premium/commands/${cmd}.js`);
+            let commandFile = require(`./ibotv1-premium/commands/${cmd}.js`);
             commandFile.run(Discord, client, message, args);
 
         } catch (e) {
