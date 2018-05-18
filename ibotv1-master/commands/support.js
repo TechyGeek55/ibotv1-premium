@@ -4,6 +4,6 @@ exports.run = async (Discord, client, message, args) => {
     if(message.member.roles.has(myRole.id)) return message.channel.send("You already have the role!");
         message.reply("You've been given the support role!")
         let member = message.author;
-        await (member.addRole(myRole.id)).catch(console.error)
+        await (message.member.addRole(myRole.id)).catch(console.error)
     
 }
