@@ -8,22 +8,17 @@ const db = require('quick.db');
 const { get } = require("snekfetch"); 
 const superagent = require("superagent");
 const weather = require('weather-js');
-const DBL = require("dblapi.js");
-const dbl = new DBL('eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjM4MzY1ODUwNjA2MDAzODE0NCIsImJvdCI6dHJ1ZSwiaWF0IjoxNTI2MTEwODAxfQ.VJFyu_SJjU6rJQZFJrsTP7azerUJjNPLs3UHvAPPKyw', client);
+
 
 var randomColor = Math.floor(Math.random() * 16777215).toString(16);
    
 client.on('ready', () => {
     console.log(`Logged in as ${client.user.tag}! There are no apparent major bugs.`);
     client.user.setStatus("online");
+    client.user.setActivity('Set me up at ibot.space/premium!', { type: 'PLAYING' });
 });
 
-client.on('ready', () => {
-    setInterval(() => {
-        dbl.postStats(client.guilds.size);
-        client.user.setActivity('with ' + client.users.size.toLocaleString() + ' users! | ibot.space', { type: 'WATCHING' });
-    }, 500);
-});
+
 
 
 
@@ -35,7 +30,7 @@ client.on('message', message => {
 
     if (sender.bot) return;
     if (message.channel.type === 'dm') {
-        message.channel.send("**Unfortunately we can only read things in guilds (servers). The comamnd prefix is '!' **")
+        message.channel.send("**Unfortunately we can only read things in guilds (servers). The comamnd prefix is ':' **")
         return;
 }
     
@@ -44,14 +39,11 @@ client.on('message', message => {
    
 
 
-   if (message.mentions.members.firstKey() === '383658506060038144') {
-    message.channel.send(':zzz: :zzz: :sleeping: You woke me. How rude! :angry: My basic prefix is ! but it may have changed!')
-   }
    
    var guildid = message.guild.id
     db.fetch(`guildPrefix_${guildid}`).then(i => {
 
-        let prefix = i || '!'
+        let prefix = i || ':'
 
         let msg = message.content.toLowerCase();
         let args = message.content.slice(prefix.length).trim().split(" ");
