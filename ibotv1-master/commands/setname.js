@@ -1,10 +1,5 @@
 exports.run = (Discord, client, message, args) => {
-if (message.author.id === '281060171730649089') {
-  const sayMessage = args.join(" ");
-  client.user.setUsername(sayMessage);
-  }
-else {
-  message.channel.send('You are not cool enough to run this command!')
-  return;
-  }
+if (!message.member.hasPermission("ADMINISTRATOR")) return message.channel.send("Only admins can edit premium bot settings.!");
+let status = args.slice(0).join(" ");
+client.user.setUsername(status)
 }
