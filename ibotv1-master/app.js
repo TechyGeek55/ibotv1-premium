@@ -30,7 +30,7 @@ client.on('message', message => {
 
     if (sender.bot) return;
     if (message.channel.type === 'dm') {
-        message.channel.send("**Unfortunately we can only read things in guilds (servers). The comamnd prefix is ':' **")
+        message.channel.send("**Unfortunately we can only read things in guilds (servers). The comamnd prefix is '!' **")
         return;
 }
     
