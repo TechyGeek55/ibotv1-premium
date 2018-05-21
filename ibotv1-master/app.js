@@ -43,7 +43,7 @@ client.on('message', message => {
    var guildid = message.guild.id
     db.fetch(`guildPrefix_${guildid}`).then(i => {
 
-        let prefix = i || ':'
+        let prefix = i || '!'
 
         let msg = message.content.toLowerCase();
         let args = message.content.slice(prefix.length).trim().split(" ");
