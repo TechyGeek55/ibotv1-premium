@@ -15,7 +15,7 @@ var randomColor = Math.floor(Math.random() * 16777215).toString(16);
 client.on('ready', () => {
     console.log(`Logged in as ${client.user.tag}! There are no apparent major bugs.`);
     client.user.setStatus("online");
-    client.user.setActivity('Set me up at ibot.space/premium!', { type: 'PLAYING' });
+    client.user.setActivity('Bakiez | !help', { type: 'PLAYING' });
 });
 
 
