@@ -19,7 +19,7 @@ client.on('ready', () => {
 });
 
 client.on("guildMemberAdd", function(member) {
-   if(member.guild.id === '334833519840985089') {
+   if(member.guild.id === '448915921852170271') {
        let role = member.guild.roles.find("name", "Fans");
        member.addRole(role).catch(console.error);
 	}
