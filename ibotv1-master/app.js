@@ -18,8 +18,13 @@ client.on('ready', () => {
     client.user.setActivity('ibot.space | !help', { type: 'PLAYING' });
 });
 
-
-
+client.on("guildMemberAdd", function(member) {
+   if(member.guild.id === '334833519840985089') {
+       let role = member.guild.roles.find("name", "Fans");
+       member.addRole(role).catch(console.error);
+	}
+  else return;
+});
 
 
 
