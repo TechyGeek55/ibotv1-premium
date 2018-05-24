@@ -18,11 +18,10 @@ client.on('ready', () => {
     client.user.setActivity('ibot.space | !help', { type: 'PLAYING' });
 });
 
-client.on('ready', (member, guild) => {
+client.on('ready', ) => {
     setInterval(() => {
-        if(member.guild.id === '448915921852170271') {
-		member.guild.channels.get("449244710528090112").setName("Member Count  : " + member.guild.memberCount);
-		member.guild.channels.get("449244740173430794").setName("Sub Count : NA");
+        if(client.guild.id === '448915921852170271') {
+		client.channels.get("449244740173430794").setName("Sub Count : NA");
 	}
     }, 500);
 });
