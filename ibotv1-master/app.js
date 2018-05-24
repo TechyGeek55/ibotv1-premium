@@ -18,7 +18,7 @@ client.on('ready', () => {
     client.user.setActivity('ibot.space | !help', { type: 'PLAYING' });
 });
 
-client.on('ready', ) => {
+client.on('ready', () => {
     setInterval(() => {
         if(client.guild.id === '448915921852170271') {
 		client.channels.get("449244740173430794").setName("Sub Count : NA");
