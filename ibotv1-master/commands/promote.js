@@ -6,8 +6,8 @@ if (!message.member.hasPermission("MANAGE_ROLES")) return message.channel.send("
 	
 var groupId = process.env.group;
 var maximumRank = process.env.rank;
-let allowedRole = message.guild.roles.find("name", process.env.role);
-if (!staffc) return message.channel.send("I can not find the gamenight channel!");
+
+
 roblox.login({username: process.env.username, password: process.env.password}).then((success) => {
 
 }).catch(() => {console.log("Failed to login.");});
