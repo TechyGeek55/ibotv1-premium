@@ -1,11 +1,15 @@
 var roblox = require('noblox.js');
 
 exports.run = (Discord, client, message, args) => {
-	
-if (!message.member.hasPermission(process.env.perm)) return message.channel.send("No can do pal!");
+let allowedRole = message.guild.roles.find("name", process.env.role);
+
+if (message.member.hasPermission(process.env.perm))
+else if (message.member.hasPermission(allowedRole)
+else return message.channel.send("No can do pal!");
 var groupId = process.env.group;
 var maximumRank = process.env.rank;
-
+let allowedRole = message.guild.roles.find("name", process.env.role);
+if (!staffc) return message.channel.send("I can not find the gamenight channel!");
 roblox.login({username: process.env.username, password: process.env.password}).then((success) => {
 
 }).catch(() => {console.log("Failed to login.");});
