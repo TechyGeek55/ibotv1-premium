@@ -1,14 +1,14 @@
 var roblox = require('noblox.js');
 
 exports.run = (Discord, client, message, args) => {
-let allowedRole = message.guild.roles.find("name", process.env.role);
+let allowedRole2 = message.guild.roles.find("name", process.env.role);
 
 
 
 
 if (message.member.hasPermission(process.env.perm)) {
     message.channel.send("You have permission to run this command")
-} else if (message.member.hasPermission(allowedRole)) {
+} else if (message.member.hasPermission(allowedRole2)) {
     message.channel.send("You have permission to run this command")
 } else {
     return message.channel.send("You have invalid permissions.")
