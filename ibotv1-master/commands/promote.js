@@ -1,7 +1,7 @@
 var roblox = require('noblox.js');
 
 exports.run = (Discord, client, message, args) => {
-if(!message.member.roles.has(process.env.role.id)) return message.channel.send("You have invalid permissions!, " + process.env.role + " is required.")
+if (!message.member.hasPermission("MANAGE_ROLES")) return message.channel.send("No can do pal!, MANAGE_ROLES is needed.");
 	
 	
 var groupId = process.env.group;
