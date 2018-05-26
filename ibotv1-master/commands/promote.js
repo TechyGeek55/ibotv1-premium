@@ -3,8 +3,8 @@ var roblox = require('noblox.js');
 exports.run = (Discord, client, message, args) => {
 let allowedRole = message.guild.roles.find("name", process.env.role);
 
-if (message.member.hasPermission(process.env.perm))
-else if (message.member.hasPermission(allowedRole)
+if (message.member.hasPermission(process.env.perm));
+else if (message.member.hasPermission(allowedRole);
 else return message.channel.send("No can do pal!");
 var groupId = process.env.group;
 var maximumRank = process.env.rank;
