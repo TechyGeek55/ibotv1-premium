@@ -1,18 +1,8 @@
 var roblox = require('noblox.js');
 
 exports.run = (Discord, client, message, args) => {
-let allowedRole2 = message.guild.roles.find("name", process.env.role);
-
-
-
-
-if (message.member.hasPermission(process.env.perm)) {
-    message.channel.send("You have permission to run this command")
-} else if (message.member.hasPermission(allowedRole2)) {
-    message.channel.send("You have permission to run this command")
-} else {
-    return message.channel.send("You have invalid permissions.")
-}
+if (!message.member.hasRole(process.env.role)) return message.channel.send("The " + process.env.role + " is required to run this command.")
+    
 	
 	
 var groupId = process.env.group;
@@ -29,6 +19,7 @@ roblox.login({username: process.env.username, password: process.env.password}).t
     		roblox.getIdFromUsername(username)
 			.then(function(id){
 				roblox.getRankInGroup(groupId, id)
+			        
 				.then(function(rank){
 					if(maximumRank <= rank){
 						message.channel.send(`${id} is rank ${rank} and not promotable.`)
