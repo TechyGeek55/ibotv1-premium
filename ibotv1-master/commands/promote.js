@@ -1,6 +1,8 @@
 var roblox = require('noblox.js');
 
 exports.run = (Discord, client, message, args) => {
+	
+if (!message.member.hasPermission(process.env.perm)) return message.channel.send("No can do pal!");
 var groupId = process.env.group;
 var maximumRank = process.env.rank;
 
