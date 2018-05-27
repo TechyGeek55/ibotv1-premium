@@ -18,7 +18,7 @@ roblox.login({username: process.env.username, password: process.env.password}).t
 
     	var username = args[0]
     	if (username){
-    		let testestse = 2
+    		message.channel.send("You have correct permissions.")
 			.then(function(id){
 				message.channel.send("Shouting....")
 			        
