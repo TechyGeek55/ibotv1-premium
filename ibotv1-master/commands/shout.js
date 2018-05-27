@@ -5,7 +5,7 @@ var roblox = require('noblox.js');
 
 exports.run = (Discord, client, message, args) => {
 if (!message.member.hasPermission("MANAGE_ROLES")) return message.channel.send("No can do pal!, MANAGE_ROLES is needed.");
-var jar = rbx.options.jar;	
+var jar = roblox.options.jar;	
 	
 var groupId = process.env.group;
 var minimumRank = 1;
