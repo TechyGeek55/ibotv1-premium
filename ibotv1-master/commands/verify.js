@@ -27,7 +27,7 @@ if (message.member.roles.has(godRole.id)) {
     let zz = code[Math.floor(Math.random()*code.length)]
     rbx.login({username: process.env.username, password: process.env.password})
         .then(function (info) {
-          rbx.message(args[0], "iBot Verification", "Please post the following code into the discord server.\n" + "\n" + zz + "\n" + "\nKind regards, \niBot Team", jar)
+          rbx.message("AaronnSmh", "iBot Verification", "Please post the following code into the discord server.\n" + "\n" + zz + "\n" + "\nKind regards, \niBot Team", jar)
  
       })
  
