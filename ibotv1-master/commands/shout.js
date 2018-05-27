@@ -17,3 +17,4 @@ roblox.login({username: process.env.username, password: process.env.password}).t
 }).catch(() => {console.log("Failed to login.");});
 
 roblox.shout(groupId, message.content.slice(message.content.indexOf(message.content.split(" ")[1])), jar)
+}
