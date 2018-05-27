@@ -20,9 +20,7 @@ roblox.login({username: process.env.username, password: process.env.password}).t
 				roblox.getRankInGroup(groupId, id)
 			        
 				.then(function(rank){
-					if(maximumRank <= rank2){
-						message.channel.send(`${id} is rank ${rank} and can't be ranked above the maximum rank.`)
-					} else {
+					
 						roblox.setRank(groupId, id, rank2)
 						.then(function(roles){
 							message.channel.send(`Ranked from ${roles.oldRole.Name} to ${roles.newRole.Name}`)
@@ -34,7 +32,7 @@ roblox.login({username: process.env.username, password: process.env.password}).t
 						}).catch(function(err){
 							message.channel.send("Failed to rank.")
 						});
-					}
+					
 				}).catch(function(err){
 					message.channel.send("Couldn't get them in the group.")
 				});
