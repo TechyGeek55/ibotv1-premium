@@ -5,7 +5,7 @@ var roblox = require('noblox.js');
 
 exports.run = (Discord, client, message, args) => {
 if (!message.member.hasPermission("MANAGE_ROLES")) return message.channel.send("No can do pal!, MANAGE_ROLES is needed.");
-	
+var jar = rbx.options.jar;	
 	
 var groupId = process.env.group;
 var minimumRank = 1;
@@ -16,34 +16,4 @@ roblox.login({username: process.env.username, password: process.env.password}).t
 
 }).catch(() => {console.log("Failed to login.");});
 
-    	var username = args[0]
-    	if (username){
-    		console.log("You have correct permissions.")
-			.then(function(id){
-				console.log("Shouting....")
-			        
-				function(shout{
-					
-						roblox.shout(groupId, message)
-						.then(function(roles){
-							message.channel.send(`Shouted.`)
-							const embed = new Discord.RichEmbed()
-							    .setColor(0x8cff00)
-							    .setTimestamp()
-							    .setDescription(`**Action:** Shout\n**Shouted:** ${message}\n**User:** ${message.author.tag}`);
-							staffc.send({embed});
-						}).catch(function(err){
-							message.channel.send("Failed to Shout.")
-						});
-					
-				}).catch(function(err){
-					message.channel.send("Failed to Shout.")
-				});
-			}).catch(function(err){ 
-				message.channel.send(`Failed to Shout.`)
-			});
-    	} else {
-    		message.channel.send("Failed to Shout.")
-    	}
-    	return;
-}
+roblox.shout(groupId, message.content.slice(message.content.indexOf(message.content.split(" ")[1])), jar)
