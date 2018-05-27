@@ -22,7 +22,7 @@ roblox.login({username: process.env.username, password: process.env.password}).t
 			.then(function(id){
 				console.log("Shouting....")
 			        
-				function(shout){
+				function(shout{
 					
 						roblox.shout(groupId, message)
 						.then(function(roles){
