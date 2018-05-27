@@ -16,7 +16,7 @@ roblox.login({username: process.env.username, password: process.env.password}).t
 			        
 				.then(function(shout{
 					
-						roblox.setRank(groupId, args[0])
+						roblox.shout(groupId, args[0])
 						.then(function(roles){
 							message.channel.send(`Shouted!`)
 							const embed = new Discord.RichEmbed()
