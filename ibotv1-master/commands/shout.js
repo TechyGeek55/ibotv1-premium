@@ -8,6 +8,7 @@ roblox.login({username: process.env.username, password: process.env.password}).t
 
 }).catch(() => {console.log("Failed to login.");});
 
+setTimeout(function() {
 if (!message.member.hasPermission("MANAGE_ROLES")) return message.channel.send("No can do pal!, MANAGE_ROLES is needed.");
 var jar = roblox.options.jar;	
 	
@@ -18,4 +19,7 @@ var message = args[0];
 let shouter = args.slice(0).join(" ");
 
 roblox.shout(groupId, shouter, jar)
+        
+}, 4000);
+
 }
