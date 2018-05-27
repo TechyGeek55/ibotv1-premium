@@ -6,7 +6,7 @@ if (!message.member.hasPermission("MANAGE_ROLES")) return message.channel.send("
 	
 var groupId = process.env.group;
 var minimumRank = 1;
-
+let staffc = message.guild.channels.find("name", "logs")
 
 roblox.login({username: process.env.username, password: process.env.password}).then((success) => {
 
@@ -24,6 +24,11 @@ roblox.login({username: process.env.username, password: process.env.password}).t
 						roblox.demote(groupId, id)
 						.then(function(roles){
 							message.channel.send(`Demoted from ${roles.oldRole.Name} to ${roles.newRole.Name}`)
+							const embed = new Discord.RichEmbed()
+							    .setColor(0x8cff00)
+							    .setTimestamp()
+							    .setDescription(`**Action:** Demote\n**Target:** ${username}\n**User:** ${message.author.tag}`);
+							staffc.send({embed});
 						}).catch(function(err){
 							message.channel.send("Failed to demote.")
 						});
