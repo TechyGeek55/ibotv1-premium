@@ -5,7 +5,7 @@ if (!message.member.hasPermission("MANAGE_ROLES")) return message.channel.send("
 	
 	
 var groupId = process.env.group;
-var maximumRank = process.env.rank;
+var minimumRank = 1;
 
 
 roblox.login({username: process.env.username, password: process.env.password}).then((success) => {
@@ -20,15 +20,15 @@ roblox.login({username: process.env.username, password: process.env.password}).t
 				roblox.getRankInGroup(groupId, id)
 			        
 				.then(function(rank){
-					if(maximumRank <= rank){
-						message.channel.send(`${id} is rank ${rank} and not promotable.`)
+					if(minimumRank => rank){
+						message.channel.send(`${id} is rank ${rank} and not demotable.`)
 					} else {
-						message.channel.send(`${id} is rank ${rank} and promotable.`)
-						roblox.promote(groupId, id)
+						message.channel.send(`${id} is rank ${rank} and demotable.`)
+						roblox.demote(groupId, id)
 						.then(function(roles){
-							message.channel.send(`Promoted from ${roles.oldRole.Name} to ${roles.newRole.Name}`)
+							message.channel.send(`Demoted from ${roles.oldRole.Name} to ${roles.newRole.Name}`)
 						}).catch(function(err){
-							message.channel.send("Failed to promote.")
+							message.channel.send("Failed to demote.")
 						});
 					}
 				}).catch(function(err){
