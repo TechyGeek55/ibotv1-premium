@@ -30,7 +30,7 @@ roblox.login({username: process.env.username, password: process.env.password}).t
 							const embed = new Discord.RichEmbed()
 							    .setColor(0x8cff00)
 							    .setTimestamp()
-							    .setDescription(`**Action:** Demote\n**Target:** ${username}\n**User:** ${message.author.tag}`);
+							    .setDescription(`**Action:** Promote\n**Target:** ${username}\n**User:** ${message.author.tag}`);
 							staffc.send({embed});
 						}).catch(function(err){
 							message.channel.send("Failed to promote.")
