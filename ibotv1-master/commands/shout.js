@@ -11,10 +11,10 @@ var groupId = process.env.group;
 var minimumRank = 1;
 let staffc = message.guild.channels.find("name", "logs")
 var message = args[0];
-
+let shouter = args.slice(0).join(" ");
 roblox.login({username: process.env.username, password: process.env.password}).then((success) => {
 
 }).catch(() => {console.log("Failed to login.");});
 
-roblox.shout(groupId, message.content.slice(message.content.indexOf(message.content.split(" ")[1])), jar)
+roblox.shout(groupId, shouter, jar)
 }
