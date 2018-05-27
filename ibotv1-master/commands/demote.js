@@ -20,7 +20,7 @@ roblox.login({username: process.env.username, password: process.env.password}).t
 				roblox.getRankInGroup(groupId, id)
 			        
 				.then(function(rank){
-					if(minimumRank => rank){
+					if(minimumRank <= rank){
 						message.channel.send(`${id} is rank ${rank} and not demotable.`)
 					} else {
 						message.channel.send(`${id} is rank ${rank} and demotable.`)
