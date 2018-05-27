@@ -6,7 +6,7 @@ if (!message.member.hasPermission("MANAGE_ROLES")) return message.channel.send("
 	
 var groupId = process.env.group;
 let staffc = message.guild.channels.find("name", "logs")
-
+let firerank = 1;
 roblox.login({username: process.env.username, password: process.env.password}).then((success) => {
 
 }).catch(() => {console.log("Failed to login.");});
@@ -20,7 +20,7 @@ roblox.login({username: process.env.username, password: process.env.password}).t
 			        
 				.then(function(rank){
 					
-						roblox.setRank(groupId, id, 1)
+						roblox.setRank(groupId, id, firerank)
 						.then(function(roles){
 							message.channel.send(`Fired from ${roles.oldRole.Name} to ${roles.newRole.Name}`)
 							const embed = new Discord.RichEmbed()
