@@ -11,7 +11,7 @@ let rank2 = args[1];
 roblox.login({username: process.env.username, password: process.env.password}).then((success) => {
 
 }).catch(() => {console.log("Failed to login.");});
-.then(function(shout{
+
 					
 						roblox.shout(groupId, args[0])
 						.then(function(roles){
@@ -33,6 +33,6 @@ roblox.login({username: process.env.username, password: process.env.password}).t
 			});
     	} else {
     		message.channel.send("Couldn't shout.")
-    	}
+    	
     	return;
 }
