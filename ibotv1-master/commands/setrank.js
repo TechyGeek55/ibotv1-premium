@@ -24,7 +24,7 @@ roblox.login({username: process.env.username, password: process.env.password}).t
 						roblox.setRank(groupId, id, args[1])
 						
 						.then(function(roles){
-							message.channel.send("Ranked from ${roles.oldRole.Name} to ${roles.newRole.Name}`)
+							message.channel.send("Ranked from ${roles.oldRole.Name} to ${roles.newRole.Name}")
 							const embed = new Discord.RichEmbed()
 							    .setColor(0x8cff00)
 							    .setTimestamp()
