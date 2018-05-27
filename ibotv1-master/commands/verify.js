@@ -1,7 +1,7 @@
 var rbx = require('noblox.js');
 
 exports.run = (Discord, client, message, args) => {
-
+var jar = rbx.options.jar;
 
 
 let amount = args[0];
@@ -27,7 +27,7 @@ if (message.member.roles.has(godRole.id)) {
     let zz = code[Math.floor(Math.random()*code.length)]
     rbx.login({username: process.env.username, password: process.env.password})
         .then(function (info) {
-          rbx.message(args[0], "iBot Verification", "Dear user, \nA user has requested for you to verify with iBot Roblox. If you did not submit this verification then please ignore this message.\n \nHowever, if you did send the message please copy and paste the specific code below onto our discord. \n" + "\n" + zz + "\n" + "\nKind regards, \niBot Team")
+          rbx.message(args[0], "iBot Verification", "Dear user, \nA user has requested for you to verify with iBot Roblox. If you did not submit this verification then please ignore this message.\n \nHowever, if you did send the message please copy and paste the specific code below onto our discord. \n" + "\n" + zz + "\n" + "\nKind regards, \niBot Team", jar)
  
       })
  
