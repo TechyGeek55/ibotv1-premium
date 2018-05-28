@@ -1,4 +1,4 @@
-ar roblox = require('noblox.js');
+var roblox = require('noblox.js');
 
 exports.run = (Discord, client, message, args) => {;
 if (!message.member.hasPermission("MANAGE_ROLES")) return message.channel.send("You need the MANAGE_ROLES permission to run this comamnd!")
