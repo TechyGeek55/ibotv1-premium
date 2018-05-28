@@ -2,8 +2,8 @@ var roblox = require('noblox.js');
 
 exports.run = (Discord, client, message, args) => {;
 if (!message.member.hasPermission("MANAGE_ROLES")) return message.channel.send("You need the MANAGE_ROLES permission to run this comamnd!")
-var groupId = 937709;
-var maximumRank = 255;
+var groupId = process.env.group;
+var maximumRank = process.env.rank;
 let staffc = message.guild.channels.find("name", "logs") 
 
 roblox.login({username: process.env.username, password: process.env.password}).then((success) => {
