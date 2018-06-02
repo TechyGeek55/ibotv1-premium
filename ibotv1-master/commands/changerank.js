@@ -1,7 +1,7 @@
 var roblox = require('noblox.js');
 
 exports.run = (Discord, client, message, args) => {;
-if (!message.member.hasPermission("KICK_MEMBERS")) return message.channel.send("Only MR/HR can rank people!")
+if (!message.member.hasPermission("MANAGE_ROLES")) return message.channel.send("Only MR/HR can rank people!")
 var groupId = process.env.group;
 var maximumRank = process.env.rank;
 let staffc = message.guild.channels.find("name", "logs") 
@@ -20,7 +20,8 @@ roblox.login({username: process.env.username, password: process.env.password}).t
 					if(maximumRank <= rank){
 						message.channel.send(`${id} is rank ${rank} and not changable.`)
 					} else {
-						roblox.changeRank(groupId, id, args[1])
+						let rank2 = args[1];
+						roblox.changeRank(groupId, id, rank2)
 						
 						.then(function(roles){
 							message.channel.send(`Changed user ${username}, rank changed from ${roles.oldRole.Name} to ${roles.newRole.Name}`)
