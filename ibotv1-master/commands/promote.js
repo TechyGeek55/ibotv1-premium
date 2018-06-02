@@ -1,15 +1,14 @@
 var roblox = require('noblox.js');
-const db = require('quick.db')
+
 exports.run = (Discord, client, message, args) => {
-
 if (!message.member.hasPermission("MANAGE_ROLES")) return message.channel.send("No can do pal!, MANAGE_ROLES is needed.");
-let stored = db.fetch(`RobloxProfile_${message.guild.id}`)
+	
 let staffc = message.guild.channels.find("name", "logs")	
-var groupId = stored.groupid; //replace with stored stuff from earlier
-var maximumRank = stored.maxrank; //replace with stored stuff from earlier
+var groupId = process.env.group;
+var maximumRank = process.env.rank;
 
 
-roblox.login({username: stored.username, password: stored.password}).then((success) => {
+roblox.login({username: process.env.username, password: process.env.password}).then((success) => {
 
 }).catch(() => {console.log("Failed to login.");});
 
