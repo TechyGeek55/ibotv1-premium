@@ -8,7 +8,7 @@ exports.run = (Discord, client, message, args) => {
 		   if (text.length < 1) return message.channel.send("Can not announce nothing");
 		   //const colour = args.slice(2).join("");
 		   const embed = new Discord.RichEmbed()
-		   .setColor("#00ff00")
+		   .setColor("#800080")
 		   .setThumbnail(client.user.avatarURL)
 		   .setTitle(":mega: Announcement: " + title)
 		   .setDescription("**Announced by: " + message.author + "**\n\n" + text + "\n")
