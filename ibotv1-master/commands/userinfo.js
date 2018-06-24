@@ -9,7 +9,7 @@ exports.run = async (Discord, client, message, args) => {
   roblox.login({username: un, password: pw}).catch(() => {console.log("Failed to login.");});
 
   let user = args[0];
-  let id = await roblox.getIdFromUsername({usernme: user}).catch(console.error);
+  let id = await roblox.getIdFromUsername({username: user}).catch(console.error);
   let username = await roblox.getUsernameFromId({id: id}).catch(console.error);
   let status = await roblox.getStatus({userId: id}).catch(console.error);
   let rank = await roblox.getRankNameInGroup({group: gid, id: id}).catch(console.error);
