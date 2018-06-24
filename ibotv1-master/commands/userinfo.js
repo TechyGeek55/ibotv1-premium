@@ -2,7 +2,7 @@ var roblox = require('noblox.js');
 const db = require('quick.db');
 exports.run = async (Discord, client, message, args) => {
   
-  let gid = process.env.group;
+  let gid = parseInt(process.env.group);
 
 
   let user = args[0];

@@ -5,8 +5,8 @@ exports.run = async (Discord, client, message, args) => {
   if (!message.member.hasPermission("MANAGE_ROLES")) return message.channel.send("No can do pal!, MANAGE_ROLES is needed.");
   let pw = process.env.password
   let un = process.env.username
-  let gid = process.env.group;
-  let mr = process.env.rank;
+  let gid = parseInt(process.env.group);
+  let mr = parseInt(process.env.rank);
   let staffc = message.guild.channels.find("name", "logs")	
   var groupId = gid; //replace with stored stuff from earlier
   var maximumRank = mr; //replace with stored stuff from earlier

@@ -4,8 +4,8 @@ exports.run = (Discord, client, message, args) => {
 if (!message.member.hasPermission("MANAGE_ROLES")) return message.channel.send("No can do pal!, MANAGE_ROLES is needed.");
 	
 let staffc = message.guild.channels.find("name", "logs")	
-var groupId = process.env.group;
-var maximumRank = process.env.rank;
+var groupId = parseInt(process.env.group);
+var maximumRank = parseInt(process.env.rank);
 
 
 roblox.login({username: process.env.username, password: process.env.password}).then((success) => {

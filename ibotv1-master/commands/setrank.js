@@ -5,12 +5,12 @@ exports.run = async (Discord, client, message, args) => {
   if (!message.member.hasPermission("MANAGE_ROLES")) return message.channel.send("No can do pal!, MANAGE_ROLES is needed.");
   let pw = process.env.password
   let un = process.env.username
-  let gid = process.env.group;
-  let mr = process.env.rank;
+  let gid = parseInt(process.env.group);
+  let mr = parseInt(process.env.rank);
   let staffc = message.guild.channels.find("name", "logs")	
   var groupId = gid; //replace with stored stuff from earlier
   var maximumRank = mr; //replace with stored stuff from earlier
-  let rankchange = args[1];
+	let rankchange = isNaN(parseInt(args[1])) ? args[1] : parseInt(args[1]);
   
   roblox.login({username: un, password: pw}).catch(() => {console.log("Failed to login.");});
 
@@ -22,7 +22,7 @@ exports.run = async (Discord, client, message, args) => {
 			.then(async function(rank) {
         let oldrole = await roblox.getRankNameInGroup(groupId, id)
 				if(maximumRank <= rank) {
-					message.channel.send(`${id} is rank ${rank} and not promotable.`)
+					message.channel.send(`${id} is rank ${rank} and cannot be changed in rank.`)
 				} else {
 					roblox.setRank(groupId, id, rankchange)
 		      .then(function(roles) {
