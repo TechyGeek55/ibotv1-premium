@@ -26,7 +26,7 @@ exports.run = async (Discord, client, message, args) => {
       message.channel.send('Failed to shout.')
     });
   } else {
-    message.channel.send('Please enter a message to shout')
+    message.channel.send('Please enter a message to shout.')
   }
   return;
 }
