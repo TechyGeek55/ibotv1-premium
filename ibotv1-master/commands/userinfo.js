@@ -6,10 +6,10 @@ exports.run = async (Discord, client, message, args) => {
 
 
   let user = args[0];
-  let id = await roblox.getIdFromUsername(user);
-  let username = await roblox.getUsernameFromId(id);
-  let status = await roblox.getStatus(id);
-  let rank = await roblox.getRankNameInGroup(gid, id);
+  let id = await roblox.getIdFromUsername({usernme: user});
+  let username = await roblox.getUsernameFromId({id: id});
+  let status = await roblox.getStatus({userId: id});
+  let rank = await roblox.getRankNameInGroup({group: gid, id: id});
 
   if(user.length > 0) {
     var embed = new Discord.MessageEmbed()

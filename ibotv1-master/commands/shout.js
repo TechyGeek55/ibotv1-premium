@@ -15,7 +15,7 @@ exports.run = async (Discord, client, message, args) => {
 
   var shoutmessage = args.join(' ');
   if(shoutmessage.length > 0) {
-    roblox.shout(groupId, shoutmessage).then(() => {
+    roblox.shout({group: groupId, message: shoutmessage}).then(() => {
       message.channel.send('Group shout posted')
       const embed = new Discord.RichEmbed()
         .setColor(0x8cff00)
