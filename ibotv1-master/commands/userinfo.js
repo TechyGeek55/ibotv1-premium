@@ -13,7 +13,7 @@ exports.run = async (Discord, client, message, args) => {
 
   if(user.length > 0) {
     var embed = new Discord.MessageEmbed()
-      .setAuthor(user1, `https://www.roblox.com/bust-thumbnail/image?userId=${id}&width=420&height=420&format=png`)
+      .setAuthor(username, `https://www.roblox.com/bust-thumbnail/image?userId=${id}&width=420&height=420&format=png`)
       .setThumbnail(`https://www.roblox.com/bust-thumbnail/image?userId=${id}&width=420&height=420&format=png`)
       .setColor(0x8cff00)
       .addField('Username', username, true)
