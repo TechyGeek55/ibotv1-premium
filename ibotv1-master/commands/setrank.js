@@ -10,7 +10,7 @@ exports.run = async (Discord, client, message, args) => {
   let staffc = message.guild.channels.find("name", "logs")	
   var groupId = gid; //replace with stored stuff from earlier
   var maximumRank = mr; //replace with stored stuff from earlier
-	let rankchange = isNaN(parseInt(args[1])) ? args[1] : parseInt(args[1]);
+	let rankchange = isNaN(parseInt(args.join(' '))) ? args.join(' ') : parseInt(args.join(' '));
   
   roblox.login({username: un, password: pw}).catch(() => {console.log("Failed to login.");});
 
