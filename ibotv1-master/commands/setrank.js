@@ -33,7 +33,7 @@ exports.run = async (Discord, client, message, args) => {
 							.setDescription(`**Action:** Rank\n**Target:** ${username}\n**User:** ${message.author.tag}\n**Old Rank:** ${oldrole}\n**New Rank:** ${roles.newRole.Name}`);
 						staffc.send({embed});
 					}).catch(function(err) {
-						message.channel.send("Failed to set rank.")
+						message.channel.send("Failed to set rank.\n" + err.stack)
 					});
 				}
 			}).catch(function(err) {

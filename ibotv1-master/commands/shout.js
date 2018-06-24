@@ -23,7 +23,7 @@ exports.run = async (Discord, client, message, args) => {
         .setDescription(`**Action:** Group Shout\n**Shout Message:** ${shoutmessage}`);
       staffc.send({embed})
     }).catch(e => {
-      message.channel.send('Failed to shout.')
+      message.channel.send('Failed to shout.\n'+e.stack)
     });
   } else {
     message.channel.send('Please enter a message to shout.')
