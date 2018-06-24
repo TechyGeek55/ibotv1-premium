@@ -4,6 +4,7 @@ exports.run = async (Discord, client, message, args) => {
   
   let gid = parseInt(process.env.group);
 
+  roblox.login({username: un, password: pw}).catch(() => {console.log("Failed to login.");});
 
   let user = args[0];
   let id = await roblox.getIdFromUsername({usernme: user});
