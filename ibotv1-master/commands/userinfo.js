@@ -3,6 +3,8 @@ const db = require('quick.db');
 exports.run = async (Discord, client, message, args) => {
   
   let gid = parseInt(process.env.group);
+  let pw = process.env.password
+  let un = process.env.username
 
   roblox.login({username: un, password: pw}).catch(() => {console.log("Failed to login.");});
 
