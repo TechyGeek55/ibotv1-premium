@@ -2,7 +2,8 @@ var roblox = require('noblox.js');
 const db = require('quick.db');
 exports.run = async (Discord, client, message, args) => {
   
-  let gid = await db.fetch(`RobloxProfile_${message.guild.id}`, { target: '.groupid' });
+  let gid = process.env.group;
+
 
   let user = args[0];
   let id = await roblox.getIdFromUsername(user);
