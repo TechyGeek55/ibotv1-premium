@@ -1,5 +1,4 @@
 var roblox = require('noblox.js');
-const db = require('quick.db')
 exports.run = async (Discord, client, message, args) => {
 
   if (!message.member.hasPermission("MANAGE_ROLES")) return message.channel.send("No can do pal!, MANAGE_ROLES is needed.");

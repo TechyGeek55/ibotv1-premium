@@ -1,5 +1,4 @@
 var roblox = require('noblox.js');
-const db = require('quick.db');
 exports.run = async (Discord, client, message, args) => {
   
   let gid = parseInt(process.env.group);
