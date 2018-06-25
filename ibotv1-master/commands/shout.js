@@ -14,18 +14,18 @@ exports.run = async (Discord, client, message, args) => {
 
   var shoutmessage = args.join(' ');
   if(shoutmessage.length > 0) {
-    roblox.shout({group: groupId, message: shoutmessage}).then(() => {
-      message.channel.send('Group shout posted')
+    roblox.shout({group: groupId, message: shoutmessage}).then(randomvar => {
+      message.channel.send('Group shout posted').catch(e => console.error('ERROR AT LINE 18\n' + e))
       const embed = new Discord.RichEmbed()
         .setColor(0x8cff00)
         .setTimestamp()
         .setDescription(`**Action:** Group Shout\n**Shout Message:** ${shoutmessage}`);
-      staffc.send({embed})
+      staffc.send({embed}).catch(e => console.error('ERROR AT LINE 23\n' + e))
     }).catch(e => {
-      message.channel.send('Failed to shout.\n'+e.stack)
+      message.channel.send('Failed to shout.\n'+e.stack).catch(e => console.error('ERROR AT LINE 25\n' + e))
     });
   } else {
-    message.channel.send('Please enter a message to shout.')
+    message.channel.send('Please enter a message to shout.').catch(e => console.error('ERROR AT LINE 28\n' + e))
   }
   return;
 }
