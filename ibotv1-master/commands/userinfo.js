@@ -11,7 +11,7 @@ exports.run = async (Discord, client, message, args) => {
   let id = await roblox.getIdFromUsername({username: user}).catch(console.error);
   let username = await roblox.getUsernameFromId({id: id}).catch(console.error);
   let status = await roblox.getStatus({userId: id}).catch(console.error);
-  let rank = await roblox.getRankNameInGroup({group: gid, id: id}).catch(console.error);
+  let rank = await roblox.getRankNameInGroup({group: gid, userId: id}).catch(console.error);
 
   if(user.length > 0) {
     var embed = new Discord.MessageEmbed()
