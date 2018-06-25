@@ -23,14 +23,13 @@ exports.run = async (Discord, client, message, args) => {
 				if(maximumRank <= rank) {
 					message.channel.send(`${id} is rank ${rank} and cannot be changed in rank.`)
 				} else {
-					message.channel.send(`${typeof groupId}, ${groupId} | ${typeof id}, ${id} | ${typeof rankchange}, ${rankchange}`)
 					roblox.setRank({group: groupId, target: id, name: rankchange})
 		      .then(function(roles) {
-						message.channel.send(`Set user ${username}'s rank from ${oldrole} to ${roles.newRole.Name}`)
+						message.channel.send(`Set user ${username}'s rank from ${oldrole} to ${roles.Name}`)
 						const embed = new Discord.RichEmbed()
 							.setColor(0x8cff00)
 							.setTimestamp()
-							.setDescription(`**Action:** Rank\n**Target:** ${username}\n**User:** ${message.author.tag}\n**Old Rank:** ${oldrole}\n**New Rank:** ${roles.newRole.Name}`);
+							.setDescription(`**Action:** Rank\n**Target:** ${username}\n**User:** ${message.author.tag}\n**Old Rank:** ${oldrole}\n**New Rank:** ${roles.Name}`);
 						staffc.send({embed});
 					}).catch(function(err) {
 						message.channel.send("Failed to set rank.\n" + err.stack)
