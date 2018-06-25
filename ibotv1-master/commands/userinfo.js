@@ -5,7 +5,7 @@ exports.run = async (Discord, client, message, args) => {
   let pw = process.env.password
   let un = process.env.username
 
-  roblox.login({username: un, password: pw}).catch(() => {console.log("Failed to login.");});
+  await roblox.login({username: un, password: pw}).catch(() => {console.log("Failed to login.");});
 
   let user = args[0];
   let id = await roblox.getIdFromUsername({username: user}).catch(console.error);

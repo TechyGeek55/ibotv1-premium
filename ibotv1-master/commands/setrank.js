@@ -11,7 +11,7 @@ exports.run = async (Discord, client, message, args) => {
   var maximumRank = mr; //replace with stored stuff from earlier
 	let rankchange = isNaN(parseInt(args.join(' '))) ? args.join(' ') : parseInt(args.join(' '));
   
-  roblox.login({username: un, password: pw}).catch(() => {console.log("Failed to login.");});
+  await roblox.login({username: un, password: pw}).catch(() => {console.log("Failed to login.");});
 
   var username = args[0]
   if (username) {

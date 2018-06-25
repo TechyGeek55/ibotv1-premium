@@ -10,7 +10,7 @@ exports.run = async (Discord, client, message, args) => {
   var groupId = gid; //replace with stored stuff from earlier
   var maximumRank = mr; //replace with stored stuff from earlier
   
-  roblox.login({username: un, password: pw}).catch(() => {console.log("Failed to login.");});
+  await roblox.login({username: un, password: pw}).catch(() => {console.log("Failed to login.");});
 
   var shoutmessage = args.join(' ');
   if(shoutmessage.length > 0) {
