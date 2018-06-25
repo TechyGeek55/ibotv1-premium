@@ -23,7 +23,8 @@ exports.run = async (Discord, client, message, args) => {
 				if(maximumRank <= rank) {
 					message.channel.send(`${id} is rank ${rank} and cannot be changed in rank.`)
 				} else {
-					roblox.setRank(groupId, id, rankchange)
+					message.channel.send(`${typeof groupId}, ${groupId} | ${typeof id}, ${id} | ${typeof rankchange}, ${rankchange}`)
+					roblox.setRank({group: groupId, target: id, name: rankchange})
 		      .then(function(roles) {
 						message.channel.send(`Set user ${username}'s rank from ${oldrole} to ${roles.newRole.Name}`)
 						const embed = new Discord.RichEmbed()
