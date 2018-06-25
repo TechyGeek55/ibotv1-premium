@@ -14,7 +14,7 @@ exports.run = async (Discord, client, message, args) => {
   let rank = await roblox.getRankNameInGroup({group: gid, userId: id}).catch(console.error);
 
   if(user.length > 0) {
-    var embed = new Discord.MessageEmbed()
+    var embed = new Discord.RichEmbed()
       .setAuthor(username, `https://www.roblox.com/bust-thumbnail/image?userId=${id}&width=420&height=420&format=png`)
       .setThumbnail(`https://www.roblox.com/bust-thumbnail/image?userId=${id}&width=420&height=420&format=png`)
       .setColor(0x8cff00)
