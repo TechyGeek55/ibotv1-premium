@@ -1,0 +1,42 @@
+{
+  "name": "iBot Premium",
+  "description": "Premium Version of iBot.",
+  "website": "https://ibot.space/",
+  "repository": "https://github.com/aaronnsmh/ibotv1-premium",
+  "logo": "https://small-sharp-tool.com/logo.svg",
+  "success_url": "https://ibot.space/",
+    "env": {
+    "BOT_TOKEN": {
+      "description": "A secret key for verifying the integrity of signed cookies.",
+      "value": "NA",
+      "required": "true"
+    },
+    "group": {
+      "description": "The number of processes to run.",
+      "value": "NA"
+    },
+     "rank": {
+      "description": "A secret key for verifying the integrity of signed cookies.",
+      "value": "NA"
+    },
+     "usernmae": {
+      "description": "A secret key for verifying the integrity of signed cookies.",
+      "value": "NA"
+    },
+     "password": {
+      "description": "A secret key for verifying the integrity of signed cookies.",
+      "value": "NA"
+    }
+  }
+  "formation": {
+    "worker": {
+      "quantity": 1,
+      "size": "Free"
+    }
+  },
+  "image": "heroku/nodejs",
+ 
+  
+    }
+  }
+}
