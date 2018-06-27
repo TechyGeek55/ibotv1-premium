@@ -1,42 +1,37 @@
 {
   "name": "iBot Premium",
-  "description": "Premium Version of iBot.",
-  "website": "https://ibot.space/",
+  "description": "Premium version of iBot",
   "repository": "https://github.com/aaronnsmh/ibotv1-premium",
-  "logo": "https://small-sharp-tool.com/logo.svg",
-  "success_url": "https://ibot.space/",
-    "env": {
+  "logo": "https://node-js-sample.herokuapp.com/node.png",
+  "keywords": ["bot", "heroku", "music-playback", "discord", "javascript", "node", "youtube"],
+  "env": {
     "BOT_TOKEN": {
-      "description": "A secret key for verifying the integrity of signed cookies.",
-      "value": "NA",
-      "required": "true"
+      "description": "Discord token used to log in",
+      "required": true
     },
     "group": {
-      "description": "The number of processes to run.",
-      "value": "NA"
+      "description": "Roblox group",
+      "required": false
     },
-     "rank": {
-      "description": "A secret key for verifying the integrity of signed cookies.",
-      "value": "NA"
+    "rank": {
+      "description": "Maxrank the bot can rank to in the group",
+      "required": false
     },
-     "usernmae": {
-      "description": "A secret key for verifying the integrity of signed cookies.",
-      "value": "NA"
+    "username": {
+      "description": "Roblox account usernmae",
+      "required": false
     },
-     "password": {
-      "description": "A secret key for verifying the integrity of signed cookies.",
-      "value": "NA"
-    }
-  }
-  "formation": {
-    "worker": {
-      "quantity": 1,
-      "size": "Free"
+    "password": {
+      "description": "Roblox account password",
+      "required": false
     }
   },
-  "image": "heroku/nodejs",
- 
-  
+  "buildpacks": [
+    {
+      "url": "https://github.com/heroku/heroku-buildpack-nodejs"
+    },
+    {
+      "url": "https://github.com/issueapp/heroku-buildpack-ffmpeg"
     }
-  }
+  ]
 }
