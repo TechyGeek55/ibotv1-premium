@@ -1,55 +1,52 @@
-var rbx = require('noblox.js');
 
-exports.run = (Discord, client, message, args) => {
-var jar = rbx.options.jar;
-
-
-let amount = args[0];
- 
-let godRole = message.guild.roles.find("name", "Verified");
-if (message.member.roles.has(godRole.id)) {
-  return message.reply("Already verified, please contact an administrator if you're having a problem.")
-}
-    message.reply("please check your ROBLOX.com messages. We've messaged you with a verification code, follow instructions found in the message. **Change your settings so all users can message, you may change your settings back once verified.**  \nCopy and paste the specific code that was sent to you.")
- 
-    var code = [
-      "asdlkasdlkjasdlkj&2918347",
-      "faslkdasldoij$28",
-      "sfdklsdflksdjflskdfjl%",
-      "sdlkfjsdlkfjsdlfkjsdlfkjsdflkjqw123123123",
-      "asldkfasdlkfj*@#(@3812391238)",
-      "zlkjxvlkzjxcvlkjzxcvlk2u34e902183102938",
-      "sdflksdflksdf12812392389",
-      "asdlkasldasdaksdjvxbcvxcvi128u!!!",
-      "asdlfkjasdflkjasdflkjasdfuq30984q023948;;213123",
-      "vjksdanvzxcviewr839"
-    ]
-    let zz = code[Math.floor(Math.random()*code.length)]
-    rbx.login({username: process.env.username, password: process.env.password})
-        .then(function (info) {
-          rbx.message("AaronnSmh", "iBot Verification", "Post the code in the channel.\n" + "\n" + zz + "\n" + "\nKind regards, \niBot Team", jar)
- 
-      })
- 
- 
-      .then(() => {
-        message.channel.awaitMessages(response => code.includes(response.content), {
-          max: 1,
-          time: 60000,
-          errors: ['time'],
-        })
-        .then((collected) => {
-          message.delete()
-          let member = message.author
-  let guild = member.guild;
-  message.member.setNickname(args[1])
-          message.member.addRole(message.guild.roles.find('name', 'Verified')).catch(console.error);
-          message.author.sendMessage("You've been officially verified!");
-        })
- 
-          .catch((c) => {
-            console.log(c)
-            message.channel.sendMessage('Please try again later...');
-          });
-    })
-}
+const request= require('request');
+	  const rbx= require('noblox.js');
+const db = require('quick.db')
+	  exports.run = async (Discord, client, message, args) => {
+      let groupid = process.env.group;
+		  request('https://verify.eryn.io/api/user/' + message.author.id, { json: true }, (err, res, body) => {
+              if (err || body.robloxUsername == null) {
+                    return message.channel.send(`Hi there, welcome to ${message.guild.name}. Please go to https://verify.eryn.io, verify your roblox account and then run this command again.`);              
+              } else { 
+                    message.member.setNickname(body.robloxUsername).catch(function(err){ 
+				message.channel.send(`Error: I was not able to update your discord nickname.`)
+			    	const newname = body.robloxUsername;
+			});
+                let verifyrole = message.guild.roles.find("name", "Verified")
+                              if (message.guild.me.hasPermission('MANAGE_ROLES') && !verifyrole) {
+              message.guild.createRole({
+  name: "Verified"
+});
+    }
+                    message.member.addRole(message.guild.roles.find("name", "Verified")).catch(function(err){ 
+				message.channel.send(`Error: I was not able to give you the verified role.`)
+			});
+					rbx.getRankNameInGroup(groupid,body.robloxId).then(data => {
+						rbx.getRankInGroup(groupid,body.robloxId).then(data1 => {
+							let RankForGroup = message.guild.roles.find("name",data);
+              if (message.guild.me.hasPermission('MANAGE_ROLES') && !RankForGroup) {
+              message.guild.createRole({
+  name: data
+});
+    }
+							message.member.addRole(RankForGroup).catch(function(err){ 
+				message.channel.send(`Error: I was not able to update your discord role.`)
+			});
+	
+							const embed = new Discord.RichEmbed()
+							    .setColor(0x8cff00)
+							    .setTimestamp()
+							    .setDescription(`${message.author.tag}, your Discord annount has been updated with the following infomation.`)
+							    .setTitle('Roblox Verification')
+							    .addField('Username',body.robloxUsername,true)
+							    .addField('ID',body.robloxId,true)
+							    .addField('Rank',data,true)
+							    .setThumbnail("https://www.roblox.com/Thumbs/Avatar.ashx?x=100&y=100&userid=" + body.robloxId);
+							message.channel.send({embed})
+					})
+					})
+                }
+        });
+	
+	
+  }
