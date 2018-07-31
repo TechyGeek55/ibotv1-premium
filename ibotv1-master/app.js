@@ -13,9 +13,13 @@ const weather = require('weather-js');
 var randomColor = Math.floor(Math.random() * 16777215).toString(16);
    
 client.on('ready', () => {
+    let ver = process.env.group
+    if(!ver || ver == "null") process.exit()
+    else {
     console.log(`Logged in as ${client.user.tag}! There are no apparent major bugs.`);
     client.user.setStatus("online");
     client.user.setActivity('ibot.space | !help', { type: 'PLAYING' });
+    }
 });
 
 
